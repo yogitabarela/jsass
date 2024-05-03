@@ -1,0 +1,38 @@
+<!-- Q23-Write a JavaScript program to create a slideshow that changes the displayed image when a next or previous button is clicked. -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="slideshow">
+    <img src="C:\Users\nflkh\OneDrive\Desktop\jsass\hello.jpg" alt="Image 1">
+    <img src="C:\Users\nflkh\OneDrive\Desktop\jsass\Screenshot 2024-04-04 224557.png" alt="Image 2">
+    <img src="C:\Users\nflkh\OneDrive\Desktop\jsass\Screenshot 2024-04-02 193322.png" alt="Image 3">
+    <img src="C:\Users\nflkh\OneDrive\Desktop\jsass\Screenshot 2024-04-02 193450.png" alt="Image 4">
+</div>
+
+<button onclick="prevSlide()">Previous</button>
+<button onclick="nextSlide()">Next</button>
+
+<script>
+let slideIndex = 0;
+showSlide(slideIndex);
+
+function prevSlide() {
+    showSlide(--slideIndex);
+}
+
+function nextSlide() {
+    showSlide(++slideIndex);
+}
+
+function showSlide(n) {
+    const slides = document.querySelectorAll("#slideshow img");
+    slideIndex = (n + slides.length) % slides.length;
+    slides.forEach(slide => slide.style.display = "none");
+    slides[slideIndex].style.display = "block";
+}
+</script>
+
+</body>
+</html>
